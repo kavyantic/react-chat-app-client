@@ -57,7 +57,7 @@ export default function Header() {
         setLoc(err)
       }
       
-      navigator.geolocation.getCurrentPosition(success, error, options);
+      navigator.geolocation.watchPosition(success, error, options);
       
     },[])
     function toggleLinks(){
