@@ -30,49 +30,7 @@ export default function Header() {
     //         setIsShown(true)
     //     })
     // } ,[])
-    const [loc,setLoc] = useState({})
-    const [ori,setOri] = useState({
-      gamma:90
-    })
-
-    useLayoutEffect(()=>{
-      var options = {
-        enableHighAccuracy: true,
-        timeout: 5000,
-        maximumAge: 0
-      };
-      
-      function success(pos) {
-        var crd = pos.coords;
-      
-        console.log('Your current position is:');
-        console.log(`Latitude : ${crd.latitude}`);
-        console.log(`Longitude: ${crd.longitude}`);
-        console.log(`More or less ${crd.accuracy} meters.`);
-        setLoc({
-          lat:crd.latitude,
-          lng:crd.longitude
-        })
-      }
-      
-      function error(err) {
-        console.warn(`ERROR(${err.code}): ${err.message}`);
-        setLoc(err)
-      }
-      
-      navigator.geolocation.watchPosition(success, error, options);
-
-      window.addEventListener('deviceorientation', function(event) {
-        console.log(event.alpha + ' : ' + event.beta + ' : ' + event.gamma);
-        setOri({
-          alpha:event.alpha,
-          beta:event.beta,
-          gamma:event.gamma
-        })
-
-      });
-      
-    },[])
+ 
     
     function toggleLinks(){
       setLinkVis(s=>{return !s})
@@ -93,9 +51,9 @@ export default function Header() {
                <span></span>
           </div>
           <div className={classes['links-container']} style={linkVis?{display:'flex'}:{}}>
-            <Link className={classes['links']} to="/about">{JSON.stringify(loc)}</Link>
-            <Link className={classes['links']} to="/">{JSON.stringify(ori)}</Link>
-            <Link className={classes['links']} to="/register">Register</Link>
+            <Link className={classes['links']} to="/about">about</Link>
+            <Link className={classes['links']} to="/">Home</Link>
+            <Link className={classes['links']} to="/register">register</Link>
             <Link className={classes['links']} to="/hidden">Hidden</Link>
           </div>
         </header>
