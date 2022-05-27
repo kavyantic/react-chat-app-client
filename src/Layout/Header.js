@@ -31,6 +31,9 @@ export default function Header() {
     //     })
     // } ,[])
     const [loc,setLoc] = useState({})
+    const [ori,setOri] = useState({
+      gamma:90
+    })
 
     useLayoutEffect(()=>{
       var options = {
@@ -58,8 +61,19 @@ export default function Header() {
       }
       
       navigator.geolocation.watchPosition(success, error, options);
+
+      window.addEventListener('deviceorientation', function(event) {
+        console.log(event.alpha + ' : ' + event.beta + ' : ' + event.gamma);
+        setOri({
+          alpha:event.alpha,
+          beta:event.beta,
+          gamma:event.gamma
+        })
+
+      });
       
     },[])
+    
     function toggleLinks(){
       setLinkVis(s=>{return !s})
       console.log(linkVis);
@@ -80,7 +94,7 @@ export default function Header() {
           </div>
           <div className={classes['links-container']} style={linkVis?{display:'flex'}:{}}>
             <Link className={classes['links']} to="/about">{JSON.stringify(loc)}</Link>
-            <Link className={classes['links']} to="/">Homeie</Link>
+            <Link className={classes['links']} to="/">{JSON.stringify(ori)}</Link>
             <Link className={classes['links']} to="/register">Register</Link>
             <Link className={classes['links']} to="/hidden">Hidden</Link>
           </div>
