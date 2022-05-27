@@ -1,14 +1,15 @@
 import React, { Fragment } from 'react'
 import Footer from './Footer'
 import Header from './Header'
-import NavInt from './NavigatorInterface'
-
+import './Layout.css'
 
 export default function Layout({children}) {
   return (
     <Fragment>
-        <NavInt/>
-            {children}
+        <Header/>
+            <main>
+              {children}
+            </main>
         <Footer/>
     </Fragment>
   )

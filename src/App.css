@@ -3,11 +3,12 @@
 *{
   font-family: 'Open Sans', sans-serif;
   font-weight: 700;
-  color: #282c34;
+  /* color: #a0afcc; */
 }
 
 body {
-  background-color: #282c34;
+  background-color:  rgb(26, 32, 39);
+  
 }
 
 
@@ -48,4 +49,12 @@ body {
   to {
     transform: rotate(360deg);
   }
+}
+
+
+@media (max-width:600px) {
+  * {
+    font-size: .65em;
+  }
+  
 }

@@ -1,24 +1,133 @@
 .header {
-    width:100vw;
-    height:100px;
+    width:100%;
+    height:80px;
     background-color:  #262930;
     position: fixed;
-    display: grid;
+    display: flex;
     align-items:center;
-    justify-content: right;
-    float: right ;
-    grid-template-columns: auto auto auto auto auto auto;
+    justify-content: space-between;
     transition: all .3s;
     
 }
 
 
+
+
+.logo-container {
+    display: flex;
+    margin-left: 1.5vw;
+    justify-content: space-between;
+    animation: logoAnim 5s infinite linear;
+
+}
+
+
+
+.logo {
+    color: rgb(255, 255, 255);
+    transition: .6s;
+}
+
+
+
+.logo:hover{
+
+    transform: scale(1.2) rotate(180deg);
+    transition:  .6s;
+    color: #a3a8b6;
+    animation: logoHoverAnim linear;
+}
+
+@keyframes logoAnim {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+
+.links-container {
+    display: flex;
+    align-items: center;
+    margin-right: 2vw;
+    height: 100%;
+}
+
 .links {
+   
+    margin: 0 1vw;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-weight: 1000;
     color: white;
     font-size: 2rem;
     text-decoration: none;
-    margin: 2%;
+    transition:  .1s;
+
+
+}
+
+.links:hover {
+    transform: scale(1.2);
+    transition:  .1s;
+}
+
+.menu-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 40px;
+    height: 40px;
+    /* background-color: #a3a8b6; */
+    margin-right: 10px;
+}
+
+.menu-btn span {
+    height: 10%;
+    width: 100%;
+    background-color: white;
+    border-radius:10px ;
+}
+
+@media (max-width:700px) {
+    /* .header {
+        position: fixed;
+        bottom: 0px;
+    }
+     */
+
+     .header {
+         height: 60px;
+     }
+     
+     
+     .logo-container {
+         margin-left:1rem;
+     }
+}
+
+
+@media (max-width:500px) {
+    .header {
+        height: auto;
+        min-height: 80px;
+        flex-wrap: wrap;
+    }
+
+    .links-container {
+        display: none;
+         width: 100%;
+         min-height: 80px;
+         margin: 10px 0 0 0;
+         flex-direction: column;
+         justify-content: space-around;  
+         
+    }
+
+    .links {
+        margin:5px ;
+    }
 
 }

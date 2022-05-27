@@ -1,0 +1,14 @@
+.login-container {
+    width:fit-content;
+    padding:1vh;
+    background-color: rgb(126, 126, 126);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 40vh;
+    min-width: 250px;
+    max-width: 600px;
+    width: 60vw;
+
+}
+
