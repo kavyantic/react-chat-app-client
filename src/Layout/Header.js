@@ -80,7 +80,7 @@ export default function Header() {
           </div>
           <div className={classes['links-container']} style={linkVis?{display:'flex'}:{}}>
             <Link className={classes['links']} to="/about">{JSON.stringify(loc)}</Link>
-            <Link className={classes['links']} to="/">Home</Link>
+            <Link className={classes['links']} to="/">Homeie</Link>
             <Link className={classes['links']} to="/register">Register</Link>
             <Link className={classes['links']} to="/hidden">Hidden</Link>
           </div>
